@@ -4,16 +4,20 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      golang: 1.23
+      golang: 1.27
     commands:
+      - mkdir -p /tmp/go-cache
+      - export GOCACHE=/tmp/go-cache
       - go version
 
   pre_build:
     commands:
+      - export GOCACHE=/tmp/go-cache
       - go mod download
 
   build:
     commands:
+      - export GOCACHE=/tmp/go-cache
       - go build -o application .
 
 artifacts:
