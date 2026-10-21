@@ -1,0 +1,52 @@
+query {
+  employees {
+    id
+    name
+    email
+    department
+    salary
+  }
+}
+
+query {
+  employee(id: 1) {
+    id
+    name
+    email
+    department
+    salary
+  }
+}
+
+mutation {
+  createEmployee(input: {
+    name: "Amit"
+    email: "amit@example.com"
+    department: "IT"
+    salary: 75000
+  }) {
+    id
+    name
+    email
+    department
+    salary
+  }
+}
+
+mutation {
+  updateEmployee(id: 1, input: {
+    name: "Amit Updated"
+    email: "amit.updated@example.com"
+    department: "HR"
+    salary: 85000
+  }) {
+    id
+    name
+    department
+    salary
+  }
+}
+
+mutation {
+  deleteEmployee(id: 1)
+}
